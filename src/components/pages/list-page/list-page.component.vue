@@ -1,5 +1,10 @@
 <template>
-  <div id="listPage" v-if="isLogIn">
+  <div id="listPage">
+    <div class="listwrapper">
+      <div class="map-view-wrapper">
+        <map-view v-if="addressList" v-bind:showList="true" v-bind:addressList="addressList"></map-view>
+      </div>
+    </div>
     <p class="title">Address Page</p>
   </div>
 </template>
