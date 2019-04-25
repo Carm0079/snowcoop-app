@@ -1,5 +1,5 @@
 export default {
-  name: "formAddAddress",
+  name: 'formAddAddress',
   data() {
     return {
       showForm: false,
@@ -40,8 +40,8 @@ export default {
     updateIsFormValidated() {
       const fields = this.$refs.formData.fields
       this.isFormValidated = fields.reduce((acc, field) => {
-        const valid = field.isRequired && field.validateState === "success"
-        const noError = !field.isRequired && field.validateState !== "error"
+        const valid = field.isRequired && field.validateState === 'success'
+        const noError = !field.isRequired && field.validateState !== 'error'
         return acc && (valid || noError)
       }, true)
     },
@@ -56,7 +56,7 @@ export default {
           lng: this.formData.lng,
         }
         this.$store
-          .dispatch("ADD_ADDRESS", address)
+          .dispatch('ADD_ADDRESS', address)
           .then(
             address => this.onAddAddressSuccessful(address),
             error => this.onAddAddressFailed(error)
@@ -110,19 +110,19 @@ export default {
       address.lat = geometry.location.lat().toString()
       address.lng = geometry.location.lng().toString()
       components.forEach(component => {
-        if (component.types[0] === "street_number") {
+        if (component.types[0] === 'street_number') {
           address.streetNumber = component.short_name
         }
-        if (component.types[0] === "route") {
+        if (component.types[0] === 'route') {
           address.streetName = component.short_name
         }
-        if (component.types[0] === "locality") {
+        if (component.types[0] === 'locality') {
           address.city = component.short_name
         }
-        if (component.types[0] === "administrative_area_level_1") {
+        if (component.types[0] === 'administrative_area_level_1') {
           address.province = component.short_name
         }
-        if (component.types[0] === "postal_code") {
+        if (component.types[0] === 'postal_code') {
           address.postalCode = component.short_name
         }
       })

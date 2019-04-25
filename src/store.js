@@ -1,7 +1,7 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import AuthService from "./services/auth.service";
-import AddressService from "./services/address.service";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import AuthService from './services/auth.service'
+import AddressService from './services/address.service'
 
 Vue.use(Vuex)
 
@@ -9,8 +9,8 @@ const store = new Vuex.Store({
   // created state
   // (data to store a value globally; treat as global variable with particular manners to call and manipulate)
   state: {
-    token: null || JSON.parse(localStorage.getItem("token")),
-    user: null || JSON.parse(localStorage.getItem("user")),
+    token: null || JSON.parse(localStorage.getItem('token')),
+    user: null || JSON.parse(localStorage.getItem('user')),
     addressList: null
   },
   // created getters
@@ -26,7 +26,7 @@ const store = new Vuex.Store({
         AuthService.setHeader(state.token)
         // AuthService.setHeader(parsedToken)
       } else {
-        Vue.router.push("login")
+        Vue.router.push('login')
       }
       return !!state.token;
     },
@@ -85,7 +85,7 @@ const store = new Vuex.Store({
     },
     GET_ADDRESS_LIST: context => {
       return AddressService.getAddressList().then(async payload => {
-        await context.commit("SET_ADDRESS_LIST", payload);
+        await context.commit('SET_ADDRESS_LIST', payload);
         return payload;
       })
     },
@@ -93,7 +93,7 @@ const store = new Vuex.Store({
       return AddressService.addAddress(payload).then(async payload => {
         const addressList = context.state.addressList;
         addressList.push(payload)
-        await context.commit("SET_ADDRESS_LIST", addressList)
+        await context.commit('SET_ADDRESS_LIST', addressList)
         return payload
       })
     }

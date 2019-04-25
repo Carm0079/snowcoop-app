@@ -1,10 +1,10 @@
 //Use Axios to make a POST request to server API
-import Axios from "axios"
+import Axios from 'axios'
 
 const AddressService = {
   getAddressList() {
     return Axios
-      .get("http://localhost:3000/address")
+      .get('http://localhost:3000/address')
       .then(async response => {
         if (response.status === 200 || response.status === 201) {
           const {
@@ -20,7 +20,7 @@ const AddressService = {
       });
   },
   addAddress(payload) {
-    return Axios.post("http://localhost:3000/address", payload).then(
+    return Axios.post('http://localhost:3000/address', payload).then(
       async response => {
         if (response.status === 200 || response.status === 201) {
           const {
