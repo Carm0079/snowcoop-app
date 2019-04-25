@@ -1,8 +1,11 @@
-import mapView from '../../shared/map-view/map-view.component.vue'
+import mapView from "../../shared/map-view/map-view.component.vue";
+import formAddAddress from "./form-add-address/form-add-address.component.vue";
+
 export default {
-  name: 'listPage',
+  name: "listPage",
   components: {
-    mapView
+    mapView,
+    formAddAddress
   },
   data() {
     return {
@@ -10,10 +13,13 @@ export default {
     }
   },
   mounted() {
-    /*eslint-disable*/
-    this.$store.dispatch('GET_ADDRESS_LIST').then(addressList => {
+    this.$store.dispatch("GET_ADDRESS_LIST").then(addressList => {
       this.addressList = addressList
-      console.log(addressList)
     })
+  },
+  methods: {
+    showForm() {
+      this.$refs.formAddress.toggleForm(true)
+    }
   }
 }

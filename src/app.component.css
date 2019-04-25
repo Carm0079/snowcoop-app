@@ -18,3 +18,20 @@ body {
 .el-aside {
   box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.5);
 }
+
+.pac-container {
+  border-radius: 4px;
+  z-index: 1000000;
+}
+
+.pac-item {
+  padding: 10px 0
+}
+
+.pac-item:hover {
+  background-color: #a4d4f6;
+}
+
+.pac-container::after {
+  display: none;
+}

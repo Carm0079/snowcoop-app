@@ -9,7 +9,5 @@ export default {
     isLogIn() {
       return this.$store.getters.IS_LOGIN
     }
-  },
-};
-
-
+  }
+}
